@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="ProcessSettings">
+      <xs:complexType>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="Encrypt" minOccurs="0" maxOccurs="unbounded">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="Algorithm" type="xs:string" minOccurs="1" maxOccurs="1"/>
+                <xs:choice minOccurs="1" maxOccurs="1">
+                  <xs:element name="SourceFilePath"    type="xs:string"/>
+                  <xs:element name="SourceDirectoryPath"    type="xs:string"/>
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        <xs:element name="Decrypt" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Algorithm" type="xs:string" minOccurs="1" maxOccurs="1"/>
+              <xs:choice minOccurs="1" maxOccurs="1">
+                <xs:element name="SourceFilePath"    type="xs:string"/>
+                <xs:element name="SourceDirectoryPath"    type="xs:string"/>
+              </xs:choice>
+              <xs:element name="KeyFilePath" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
